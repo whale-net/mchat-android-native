@@ -1,23 +1,24 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Button, Platform, StyleSheet, Text, View} from 'react-native';
 
 import Logo from '../components/Logo';
 import Form from '../components/Form'; 
 
-export default class Login extends Component<{}> {
+export default class LoginScreen extends Component {
+	static navigationOptions = {
+		title: 'Login',
+	};
+
 	render() {
+		const {navigate} = this.props.navigation;
 		return(
-			<View style={styles.logo}>
-				<Logo/>
-				<Form/>
-			</View>
+
+				<Button
+				    title="Login"
+				    onPress={() => navigate('Main')} 
+				/>
+		
 			)
 	}
 }
 
-const styles = StyleSheet.create({
-	logo : {
-		flex: 1,
-		alignItems: 'center'
-	}
-})

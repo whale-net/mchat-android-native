@@ -7,26 +7,25 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Button, Platform, StyleSheet, Text, View} from 'react-native';
+import {createStackNavigator, createAppContainer} from 'react-navigation';
 
-import Login from './src/pages/Login';
+import LoginScreen from './src/pages/Login';
+import MainScreen from './src/pages/MainScreen';
 
-type Props = {};
-export default class App extends Component<Props> {
+class HomeScreen extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Login/>
+      <View>
+        <Text>Home Screen</Text>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  }
+const App = createStackNavigator({
+  Login: {screen: LoginScreen},
+  Main: {screen: MainScreen}
 });
+
+export default createAppContainer(App);
